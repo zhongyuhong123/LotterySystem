@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏房间</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/game_room.css">
+</head>
+<body>
+    <div class="nav">五子棋对战</div>
+    <div class="container">
+        <!-- 棋盘区域，需基于 canvas 进行实现
+            canvas这个标签有一组配套的js的canvas api就可以实现一些“画画”的效果~ -->
+        <canvas id="chess" width="450px" height="450px">
+            
+        </canvas>
+        <!-- 显示区域 -->
+         <div id="screen"> 等待玩家连接中... </div>
+    </div>
+
+    
+    <script src='js/script.js'></script>
+</body>
+</html>

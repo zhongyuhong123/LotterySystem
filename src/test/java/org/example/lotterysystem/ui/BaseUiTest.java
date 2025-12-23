@@ -29,6 +29,10 @@ public abstract class BaseUiTest {
         baseUrl = System.getProperty("selenium.base-url", "http://localhost:8080");
         headless = Boolean.parseBoolean(System.getProperty("selenium.headless", "true"));
         WebDriverManager.chromedriver().setup();
+
+        //无法启动 WebDriverManager，替换手动指定本地 ChromeDriver 路径
+        // 注意：路径中的 \ 需要转义为 \\，或直接用 /
+//        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
     }
 
     @BeforeEach
@@ -37,6 +41,8 @@ public abstract class BaseUiTest {
         if (headless) {
             options.addArguments("--headless=new");
         }
+        // 新增：解决新版 Chrome 跨域/启动兼容问题（必加）
+        options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-gpu");
         options.addArguments("--window-size=1366,768");
         options.setAcceptInsecureCerts(true);
